@@ -1,0 +1,18 @@
+## Interface: 80000
+## Title: MultiTool
+## Notes: Some Dual-Boxing utilities by The Digital Sorceress
+## Author: DigitalSorceress
+## Version: 8.0.0.0
+## SavedVariables: MultiToolDB
+## OptionalDeps: Ace3
+## X-Embeds: Ace3
+## X-Category: Miscellaneous
+## X-Curse-Project-Name: MultiTool
+## X-Curse-Project-ID: multitool
+## X-Curse-Repository-ID: wow/multitool/mainline
+
+#libs
+embeds.xml
+
+local.xml
+MultiTool.lua

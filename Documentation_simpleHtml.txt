@@ -1,0 +1,129 @@
+<h1>Multitool Documentation - (<i>v7.1.0.001</i>)</h1> 
+
+<h2>General</h2>
+<h3>"Masterless" Operation</h3>
+  MultiTool was designed to have as little overhead and as little "fiddling around" as possible. To that end, most of the features that traditionally use a master/slave relationship (following, taxi following, quest gossip cloning, etc) are "masterless". This means that any members in the party with multitool can initiate those actions and the others will follow their lead.
+
+  There will eventually be a "white list" so taht if you ever end up grouped with other people who also have MultiTool, they won't be able to make you do stuff unless they're on your allowed list. At the moment, this feature does not exist, so just make sure you really trust anyone you group with if they have MultiTool.
+
+<h3>Quest and taxi (flight master) cloning</h3>
+There is one important thing to remember about both these actions: in order for them to work, all toons in the party that you want to follow on taxi or clone actions while in quest dialogs (accept/turnin/decline,etc...) must have the dialog open first.
+
+This is due to both the way Blizzard handles the dialogs as well as Blizard security.. it ensures that someone was actually playing the toon by making them take an action (clicking on quest npc or item) and not an automated "bot".
+
+<h4>EXAMPLE 1:</h4>
+ToonA, ToonB, and ToonC are all in party together and all have MultiTol...
+
+ToonA and ToonB open flight master dialog in Shattrath, but ToonC does not. When EITHER ToonA OR ToonB selects a flight path, ToonA and ToonB take off and fly to the chosen destination simultaneously, but ToonC does not.
+
+<h4>EXAMPLE 2:</h4>
+ToonA, ToonB, and ToonC are all in party together and all have MultiTol...
+
+ToonA and ToonB open flight master dialog in Shattrath, ToonC is in Thrallmar, and opens flight master dialog there... All Toons have flight path available to Swamprat post... ToonC clicks on Swamprat Post. All toons simultaneously take off and will arrive at Swamprat post following the path that they normally would from their originating location
+
+<h4>EXAMPLE 3:</h4>
+ToonA, ToonB, and ToonC are all in party together and all have MultiTol...
+
+ToonA and ToonB open flight master dialog in Shattrath, ToonC is in Thrallmar, and opens flight master dialog there... ToonB does NOT have flight path for Swamprat Post, but ToonA and ToonC do. ToonC clicks on SwampratPost... ToonA and ToonC fly to swamprat, but ToonB will be left behind.
+
+Quest dialogs work much the same way except unlike Flight Paths, all toons who wish to participate in quest gossip cloning MUST have the same quest dialog open to start with.
+
+Also, if you haven't chosen to use "clone rewards" option (by default it's off), then when you get to a multiple choice reward (this weapon, that trinket, or the other armor kind of things) then only the toon on which you are actively clicking will accept the reward. This is a deliberate safety measure in case folks have toons of different classes and want to manually choose rewards for each.
+
+NOTE that if there is more to the dialog, you can continue together simply by making sure all your toons are on the same step... choose your rewards on each one before continuing to next step in dialog and they'll start following each others choices again.
+
+<h2>Configuration menu</h2>
+The configuration menu can be brought up either with the slash command (/mtool or /multitool) or through the Blizard Addon Configuration page (INTERFACE / Addons tab from the in game config menu)
+
+<h3>Bag Space Monitoring</h3>
+When enabled, this will cause all players in group with MultiTool to receive warnings when their bag space is nearing full or is full.
+
+NOTE: As of v0.2.00, this feature is listed and coded, but does not appear to be working. I didn't want to hold up the release, and since I don't believe it will do anything BAD (other than silently not work, or very chattily output debug messages should you be masochistic enough to have debugging turned on) I just left it stubbed in there.
+<ul>
+<li><i>Enable Bag Monitoring</i>
+Toggles monitoring / warning of bag space of group users with MultiTool.
+<li><i>Bag Space Warning Threshold</i>
+Number of free slots left before displaying warning
+</ul>
+
+
+<h3>Debugging Options</h3>
+For the non-developers out there, debugging is the process of finding and fixing problems. Since this addon is being very actively worked on at this point, it's just a lot easier for me to have an option to show certain messages, events, and variables. This way, I can play the game with MultiTool running and whenever I see something odd happen, I have the data available to immediately patch and see if that fixed it.
+
+Feel free to turn debugging and blather on, but be warned, it will cause MultiTool to continually chatter in your chat window. Blather is particularly verbose... I don't even use that unless I'm actively investigating a stubborn problem.
+<ul>
+<li><i>Show Debug Level</i>
+Toggles whether to output key debugging messages or not.
+<li><i>Show Blather Level</i>
+Toggles whether to output massively chatty debugging messages
+</ul>
+<li><i>Show Comms Level</i>
+Toggles whether to output Communication and RPC messages - added in 0.5.0 to help troubleshoot some quest dialog issues
+</ul>
+
+<h3>Quest Log Monitoring</h3>
+Same concept as bag space monitoring, but keeps an eye on your quest log. This feature was included because we all have occasionally had a situation where we picked up an escort quest, but one of our toons had a full log without us realizing it (sometimes a toon will have a pending class quest or an instance quest you haven't gotten to yet where the other doesn't).
+
+The result: You either have to abandon the escort and try again when you've made room, or You have to do the quest twice.
+
+With the monitoring active, you'll receive an error type message on screen when one of your toon's quest log reaches a predefined threshold (default 5 slots left - may change that to 1) or is full.
+
+The idea is that if you receive this warning BEFORE you try to pick up another quest with a full log, you'll have the option of abandoning some junk quests or doing some turnins.
+<ul>
+<li><i>Enable Quest Log Monitoring</i>
+Toggles monitoring / warning of quest log fullness of group users with MultiTool.
+<li><i>Quest Log Warning Threshold</i>
+Number of free quest log slots left before displaying warning
+</ul>
+
+
+<h3>Flight Path (Taxi) Following</h3>
+Allows for all toons to use flight master to fly to same destination at the same time, saving a lot of clicking and accidental separation (from clicking the wrong path on one of your toons)
+
+See general notes above about having the flight master dialog open on all toons before taking taxi.
+<ul>
+<li><i>Auto Flight Path</i>
+Toggles whether or not to try to follow the flight path taken by others in the party with MultiTool.
+</ul>
+
+
+<h3>Quest Gossip Cloning</h3>
+Allows for all toons at same quest npc/item to copy each others' choices, thus saving a LOT of clicking (think of how many clicks you need to accept and turn in quests)
+
+NOTE that by default, reward choices (when there are multiple choices of rewards) will not be cloned. Use the configuration option to enable copying of reward choices as well.
+
+See general notes above about having the flight master dialog open on all toons before taking taxi.
+<ul>
+<li><i>Quest Gossip Broadcast</i>
+Toggles whether or not to share quest gossip choices with others in the party with MultiTool
+<li><i>Clone Reward Choices</i>
+Toggles whether or not quest gossip broadcast clones your reward choices. (Must also have gossip broadcast on to work)
+</ul>
+
+
+<h3>Auto Decline Duel Requests</h3>
+Simply put, un-solicited duel requests are annoying to a LOT of people. Multi Boxers are especially inconvenienced by duel spam because they often have to reach over to their off-hand computer or alt/tab in order to decline... and duel spammers often will go right down the list requesting duels from everyone who passes by.
+
+When engaged, the duel flag will bounce right back up way faster than you could ever click on "decline".
+
+There is also an option to allow duel requests from your white list.
+<ul>
+<li><i>Auto Cancel Duels</i>
+Toggles whether to automatically cancel all incoming duel requests.
+</ul>
+
+
+<h3>Auto Merchant Features</h3>
+For most Multi Boxers (and a lot of single-boxers as well), repairing gear and unloading junk from bags is a tedious, if not time-consuming task. The auto merchant features of MultiTool include the option to automatically sell junk (gray quality) items and automatically repair all gear whenever a valid merchant dialog is opened.
+
+Please note that both of these functions work well, but are VERY primitive.
+
+For auto repair, there is no message as to what you spent or even an indication that the repairs were done (except the tell-tale sound of coins flying out of your wallet). If you don't want this feature, you can disable it in configuration.
+
+For auto sell junk, there is no white/black list. If it's in your bag and it's poor quality (gray), it will go bye-bye with no confirmation. Due to the possibility that someone may NOT want this feature, it is disabled by default, so you will have to enable it in the configuration menu for it to work. It's been tested and has never mis-fired, but USE AT YOUR OWN RISK.
+<ul>
+<li><i>Auto Sell Junk</i>
+Toggle this to have your toon automatically sell all gray items (poor quality junk) to vendors. (note: this is not at all discriminating to its defaulted to off)
+<li><i>Auto Repair</i>
+Toggle this to have your toon automatically repair all when at repair-enabled vendor
+</ul>

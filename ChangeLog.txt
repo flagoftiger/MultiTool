@@ -1,0 +1,288 @@
+MultiTool:ChangeLog           v7.1.0.001        2016/12/28      DigitalSorceress
+
+v7.1.0.001 - 2016/12/28
+  Updated TOC for 7.1
+
+v6.2.0.0001 - 2015/06/23
+  Updated TOC for 6.2
+
+v6.1.1.003 - 2015/02/27
+  Removed a couple of erraant "notice" level messages I accidentally left in from 6.1.1.002 fixes
+
+v6.1.1.002 - 2015/02/25
+  First serious code change in a long time... 
+  Fixed usage of GetGossipAvailableQuests() to account for the fact that it now returns 6 per quest instead of 3
+  Created "safe" version of GetActiveTitle(index) with myGetActiveTitle(index)
+  These changes should make for less errors/quirky behavior 
+  Also fixed a nuisance issue where the chat commands were not opening to my config menus
+
+v6.1.1.001 - 2015/02/25
+  Fixed issue where 6.1 broke sounds
+
+v6.1.0.001 - 2015/02/24
+  Updated TOC for 6.1
+
+v6.0.2.001 - 2014/10/14
+  OOPS - toc should have been 60000 not 6002
+
+v6.0.2.000 - 2014/10/12
+  Updated TOC for patch 6.0.2 (hoping I got it right)
+  I need to wait for "patch day" to really test as I don't have beta and haven't had time to check PTR
+  
+v5.4.0.002 - 2014/09/21
+  Updated after testing for Next patch
+
+v5.4.0.001 - 2013/09/29
+  Updated TOC for patch 5.4
+
+v5.3.0.001 - 2013/05/23
+  Updated TOC for patch 5.3
+
+v5.2.0.001 - 2013/03/05
+  Updated TOC for patch 5.2
+
+v5.1.0.001 - 2012/11/27
+  Updated TOC for patch 5.1
+
+v5.0.4.001 - 2012/09/02
+  Redid versioning system to fall in line with WoW versions (makes my life easier)
+
+v0.5.2 - 2012/08/28
+  Updated TOC for new UI 50001 - Since MultiTool doesn't really have much in the way of UI, This should be all it takes
+  Will test thoroughly once I can get updated and online
+
+v0.5.1a - 2012/02/01
+  Fixed a small oopsie in the debugMsg code was causing some comms debug messages to be displayed regardless of debug settings
+
+v0.5.1 - 2012/01/01
+  Comms debugging options have done their job... Found and fixed annoying issue where guards and some profession trainers would skip dialogs
+  Added better detection/handling of Use Guild Funds for repairs
+  Big thanks to my sweetheart Nebby for helping me discover this issue
+
+v0.5.0 - 2011/12/24
+  Adding Communications debugging options to try and nail down an annoying dialog skipping issue
+
+v0.4.1d - 2011/12/02
+  Tested for Patch 4.3 Issues
+  Updated TOC for 4.3
+
+v0.4.1c - 2011/08/17
+  Tested for patch 4.2 issues
+	Updated TOC for 4.2
+
+v0.4.1b - 2011/04/26
+  Tested for patch 4.1 issues
+	Updated TOC for 4.1
+	
+v0.4.1a - 2011/03/04
+  Touching version as curse seems to think it's out of date even though I still 
+  use it every day without issues.
+  
+v0.4.1 - 2010/10/13
+  Tested for patch 4.0 issues
+  Updated TOC for 4.0
+  
+v0.4.0 - 2009/12/08
+  Renamed Core.lua to MultiTool.lua
+  Moved Locale-enUS.lua to Locals directory
+  Created local.xml
+  Bumped ToC for 3.3.0
+
+v0.3.07 - 2009/08/05
+  Updated TOC for patch 3.2
+  This was done AFTER testing in live 3.2 - no bugs found
+  Please contact me if you find that something isn't working properly
+
+v0.3.06 - 2009/05/23
+  Added features to prevent situation where two MultiTool users in same party 
+  have different available quests thus putting indexex out of sync
+  
+  Translation of above: Makes sure you're accepting the same quest as other 
+  MultiTool users.
+  
+  Translation of the above translation: Made selecting quests more reliable
+
+v0.3.05 - 2009/04/30
+  Added Auto Follow Lost Warning system at request of jst-one at 
+  www.dual-boxing.com forums
+  
+  I introduced a slight delay between detection of follow lost and when it 
+  actually sends the alert. I found that without this delay, re-hitting follow 
+  caused a very quick LOST and then FOLLOW sequence of events that resulted 
+  in a bit of warning spam.
+  
+v0.3.04 - 2009/04/29
+  Added Auto Accept Ressurection
+
+v0.3.03 - 2009/04/17
+  Minor fixes
+
+v0.3.02 - 2009/04/15
+  Ok, this time, auto accept group really IS fixed.
+  
+  BIG thank you to Borlox and Dridzt from the www.wowace.com community for the 
+  help
+  
+v0.3.01 - 2009/04/15
+  Fixed Auto accept group functionality... apparently, the StaticPopup_HIDE was 
+  happening too close to the AcceptGroup() call, causing the accept to be 
+  aborted
+  
+  Updated embedded ACE libs to the latest 3.1 safe versions just in case
+
+v0.3.00 - 2009/04/15
+  updated TOC for Interface 3.1
+
+v0.2.08 - 2008/12/02
+  Fixed missing library definition that caused config to not show if you didnt 
+  have another addon that defined it - THANK YOU Stithis for the help!
+  
+  Fixed formatting of repair warning
+  
+  Fixed a couple of "can't concatenate nil" errors
+  
+v0.2.07 - 2008/12/02
+  Adding announcement of money spent on repairs - and configuration options
+
+v0.2.06 - 2008/11/22
+  Added self-only option to quest log warn
+  
+  Added a bunch of comments to source to try and begin the process of refactoring
+  
+  Commented out a couple things that it looks like aren't going to fly:
+  specifically, things dealing with AcceptTrade() because it's protected by Bliz
+  and probably never going to be able to be worked around
+
+v0.2.05 - 208/11/22
+  Added check for  name == UnitName("player") to isInWhiteList to always be true for self
+  
+  Built standard sound list and a way to handle picking sounds for various events
+  
+  Added Pick Sound option to bag warn
+  
+  Added Pick Sound option to quest log warn
+  
+  Added Pick Sound option for auto accept summons
+  
+  Added default warning sound setup
+
+v0.2.04 - 2008/11/21
+  FINALLY worked out how to do the white list.
+
+  Added Profiles to options page (I LOVE YOU Ace3 !!! )
+
+  Added Auto Accept Summon (and config options for "only if in whitelist") - NEED TESTING
+  
+  Added Auto Accept Party Invites (white list only)
+  
+  Added Auto Reject Party Invites from strangers (if not in white list)
+  
+  Added option to allow folks on whitelist to request duels 
+  
+  Added Auto Accept Escort/event quests... I think this one needs a little on-screen warning tho
+  
+  Modified TakeTaxi to have option of only following whitelist
+  
+  Stubbed out Auto Accept Trades, but this may not be possible the way I want to do it
+
+v0.2.03 - 2008/11/20
+  Want to start working on white list
+  
+  Fixed fencepost error in bag space alerts when using item_push
+  
+  Changed config stuff from tree multiple submenus - MUCH cleaner
+  
+  Added some better descriptions
+  
+  Changed Bag space warning from BAG_UPDATE to ITEM_PUSH because ITEM_PUSH is 
+  only when you gain an item from quest or vendor... much less spammy
+  
+  Added sound to bag and quest log warnings
+
+v0.2.02 - 2008/11/19
+  Massively cleaned up option set/get... using getConfigOptin and 
+  setConfigOption for all get/set options instead of individual functions
+
+v0.2.01 - 2008/11/18
+  Reorganized the options menu a bit
+  
+  Fixed Bag space warnings
+  
+  Changed option for bagWarn to slider
+  
+  Changed option for questLogWarn to slider
+  
+  Altered rpcCommandSender to turn PARTY/RAID distribution to WHISPER PLAYER if 
+  called when not in group
+  
+  Found bug with take Taxi indexing - added a fallback to  name search if 
+  index/name don't match up.
+  
+  Added warning message if taxi node unavailable
+  
+  Updated debugMe() to handle warn and error a bit differently than notice, 
+  debug, and blather
+
+v0.2.00 - 2008/11/17
+  Decided to call this 0.2.0 because 0.1.06 marks a fairly clean, almost release
+  and I want to kind of mentally bookmark before adding a bunch of new stuff
+    
+  Bag space warnings built... does not seem to be properly warning - will continue 
+  debugging and get it right
+  
+  Quest log space warnings built... does not yet work properly either - will 
+  continue debugging
+  
+  Auto Vend Junk built. BE AWARE that this needs to be explicitly enabled in the 
+  options panel (/mtool) and tat it has NO intelligence. If there are any gray 
+  quality items in your bags and you open a dialog with a vendor, those items will 
+  be sold. There is no "blacklist/whitelist" for this one. I wanted a simple 
+  "sell my junk" feature, and this is it.
+  
+  Auto Repair built. Works beautifully.
+
+v0.1.06 - 2008/11/16
+  Found out why quest qompletion for non reward choice is not broadcasting ...
+  Hand't implemented GetQuestReward() because I didn't want it to exactly clone
+  reward choices in case you're like me and run different classes.
+  
+  Took a peek at QuestGuru to see how they did autocomplete quests, and 
+  implemented something similar.
+  
+  Added an option to clone reward choices. So, for those who run all the same 
+  classes, you can really quickly outfit your toons. For those who want to 
+  pick manually, turn the clone option off. By default, cloning is off.
+  
+v0.1.05 - 2008/11/16
+  Continued refinement of remote procedure calls... trying to clean it up as 
+  my concept of "masterless" actions seems to be working. To that end, I created
+  rpcCommandSend() to broker the messages
+  
+  Started working on quest broadcast - starting with code from ZQB and adding my 
+  message storm blocking so taht it safely shares gossip no matter which party 
+  member does the dialog
+  
+  Did a LOT of cleanup - took out some "turds" left over from when I was playing 
+  with the Ace3 Tutorial
+  
+v0.1.04 - 2008/11/15
+  thoroughly testing the taxi follow functionality
+  
+  Slightly redesigned the taxi mode follow function and made it a lot simpler in the process
+  
+v0.1.03 - 2008/11/13
+  Beginning work on it as I grind away in wotlk
+  
+  Added config option for auto follow flight point
+  
+  Got the auto follow taxi system working (flight points)
+  
+  There were issues with creating "message storms" with the taxi, so use this 
+  feature with care until I've tested it more extensively
+  
+v0.1.02 - 2008/11/12
+  Too many fixes to list - basically, debugging from the original "dry coding"
+
+v0.1.01 - 2008/11/11
+  Initial Addon creation - dry-coded while wow was down
+
